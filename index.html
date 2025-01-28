@@ -5,213 +5,280 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Md Ridoan Mahmud Zisan's Portfolio - Web Developer, Designer">
     <title>Md Ridoan Mahmud Zisan | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .skill-bar {
+            transition: width 2s ease-in-out;
+        }
+        .hover-scale {
+            transition: transform 0.3s ease-in-out;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        #nav-links {
+            transition: transform 0.3s ease-in-out;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            #nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #fff;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
+                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            }
+            #nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
-<body>
 
-    <nav>
-        <div class="logo">☺</div>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <!-- Navigation Bar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg fixed w-full z-10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="nav-links" class="hidden md:flex space-x-6">
+                <li><a href="#about" class="hover:text-gray-600 dark:hover:text-gray-300">About</a></li>
+                <li><a href="#skills" class="hover:text-gray-600 dark:hover:text-gray-300">Skills</a></li>
+                <li><a href="#projects" class="hover:text-gray-600 dark:hover:text-gray-300">Projects</a></li>
+                <li class="dropdown">
+                    <a href="#achievements" class="hover:text-gray-600 dark:hover:text-gray-300">Achievements</a>
+                    <div class="dropdown-content">
+                        <a href="#certificates">Certificates</a>
+                        <a href="#awards">Awards</a>
+                    </div>
+                </li>
+                <li><a href="#contact" class="hover:text-gray-600 dark:hover:text-gray-300">Contact</a></li>
+            </ul>
         </div>
-        <ul id="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
     </nav>
 
     <!-- Profile Section -->
-    <section id="about" class="section">
-        <div class="profile">
-            <img src="https://github.com/RidoanDev.png" alt="Md Ridoan Mahmud Zisan">
-            <h3>Md Ridoan Mahmud Zisan</h3>
-        </div>
-        <p>Human</p>
-    </section>
-
-    <section class="section flex">
-        <h2>My Skills</h2>
-    
-        <div class="progress-bar-container">
-            <h2>
-                <label for="html">Web Application Development</label>
-            </h2>
-            <div class="progress-bar html">
-                <progress id="html" min="0" max="100" value="90"></progress>
-            </div>
-        </div>
-    
-        <div class="progress-bar-container">
-            <h2>
-                <label for="js">Time Management</label>
-            </h2>
-            <div class="progress-bar js">
-                <progress id="js" min="0" max="100" value="80"></progress>
-            </div>
-        </div>
-    
-        <div class="progress-bar-container">
-            <h2>
-                <label for="css">Memorizing</label>
-            </h2>
-            <div class="progress-bar css">
-                <progress id="css" min="0" max="100" value="70"></progress>
-            </div>
-        </div>
-    
-        <div class="progress-bar-container">
-            <h2>
-                <label for="hard-work">Hard Work</label>
-            </h2>
-            <div class="progress-bar hard-work">
-                <progress id="hard-work" min="0" max="100" value="60"></progress>
+    <section id="about" class="section py-20">
+        <div class="container mx-auto text-center">
+            <img src="https://github.com/RidoanDev.png" alt="Md Ridoan Mahmud Zisan" class="w-32 h-32 rounded-full mx-auto hover-scale">
+            <h3 class="text-3xl font-bold mt-4">Md Ridoan Mahmud Zisan</h3>
+            <p class="text-gray-600 dark:text-gray-300">Student | Learner</p>
+            <div class="mt-4 space-x-4">
+                <a href="https://github.com/RidoanDev" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://www.linkedin.com/in/ridoan2007" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-blue-500"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://wa.me/8801712525910" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-green-500"><i class="fab fa-whatsapp fa-2x"></i></a>
             </div>
         </div>
     </section>
-    
-    
 
-
-<section id="projects" class="section">
-    <h2>Projects</h2>
-
-    <div class="project">
-        <h3><i class="fas fa-robot"></i> Z GPT</h3>
-        <p>This is Chat GPT Alternative Version.</p>
-        <a href="https://ridoandev.github.io/Z-GPT/" target="_blank">View Project</a>
-    </div>
-
-    <div class="project">
-        <h3><i class="fas fa-exchange-alt"></i> Uniconverter App</h3>
-        <p>A unit conversion app with a user-friendly interface.</p>
-        <a href="https://ridoandev.github.io/UniConverter/" target="_blank">View Project</a>
-    </div>
-
-    <div class="project">
-        <h3><i class="fas fa-keyboard"></i> Typing Test</h3>
-        <p>A typing test app with a user-friendly interface.</p>
-        <a href="https://ridoandev.github.io/T-Test/" target="_blank">View Project</a>
-    </div>
-
-    <div class="project">
-        <h3><i class="fas fa-edit"></i> Zpad</h3>
-        <p>A note-taking app with user authentication and data management features.</p>
-        <a href="https://ridoandev.github.io/zpad/" target="_blank">View Project</a>
-    </div>
-
-    <div class="project">
-        <h3><i class="fas fa-th-large"></i> Tik Tak Toe</h3>
-        <p>A challenging classic Tic-Tac-Toe game.</p>
-        <a href="https://ridoandev.github.io/Tik-Tak-Toe/" target="_blank">View Project</a>
-    </div>
-
-    <div class="project">
-        <h3><i class="fas fa-play-circle"></i> Snake Game</h3>
-        <p>A challenging classic Snake game.</p>
-        <a href="https://ridoandev.github.io/snake-game/" target="_blank">View Project</a>
-    </div>
-
-    <div class="project">
-        <h3><i class="fas fa-brain"></i> Sound Memory Game</h3>
-        <p>A challenging classic memory game.</p>
-        <a href="https://ridoandev.github.io/Sound-Memory/" target="_blank">View Project</a>
-    </div>
-</section>
-
-
-
-
-
-    <section id="achievements" class="section">
-        <h2>Achievements</h2>
-        <div class="certificate">
-            <h3> Web Development Certificate </h3>
-            <p> As a certified Web Developer </p>
-            <a href="https://drive.google.com/file/d/159YDeXfY7TSjxJlNyw-piESNPZXutiqR/view?usp=" target="_blank">View Certificate</a>
-        </div>
-        <div class="certificate">
-            <h3> United Nations Certificates </h3>
-            <p>5 UN Certificatse on SDG</p>
-            <a href="https://drive.google.com/drive/folders/14CmnXmAOTXvDSdxFfIUUcHqdU-p7ETeH" target="_blank">View Certificate</a>
-        </div>
-        <div class="certificate">
-            <h3> Other Certificates </h3>
-            <p> Certificates earned in my other skills </p>
-            <a href="https://drive.google.com/drive/folders/18XgWheMc8PvrxyGEQYbGUsbp9ga7ul4F" target="_blank">View Certificate</a>
+    <!-- Skills Section -->
+    <section id="skills" class="section py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
+            <div class="space-y-4">
+                <div class="skill-bar-container bg-gray-200 dark:bg-gray-700 rounded-full">
+                    <div class="skill-bar bg-blue-500 text-white text-center py-2 rounded-full" style="width: 90%;">Internet Management - 90%</div>
+                </div>
+                <div class="skill-bar-container bg-gray-200 dark:bg-gray-700 rounded-full">
+                    <div class="skill-bar bg-blue-500 text-white text-center py-2 rounded-full" style="width: 95%;">Web Application Development - 95%</div>
+                </div>
+                <div class="skill-bar-container bg-gray-200 dark:bg-gray-700 rounded-full">
+                    <div class="skill-bar bg-blue-500 text-white text-center py-2 rounded-full" style="width: 85%;">MS Office - 85%</div>
+                </div>
+                <div class="skill-bar-container bg-gray-200 dark:bg-gray-700 rounded-full">
+                    <div class="skill-bar bg-blue-500 text-white text-center py-2 rounded-full" style="width: 70%;">Time Management - 70%</div>
+                </div>
+            </div>
         </div>
     </section>
 
-
-    <section id="contact" class="section">
-        <div class="iframe-container">
-            <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSd2mTY3mfh8-C2BBtcXAVbcu7DkUstyVoH1SeeVxsPZjHiI0Q/viewform?embedded=true"
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0">Loading…</iframe>
+    <!-- Projects Section -->
+    <section id="projects" class="section py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold"><i class="fas fa-robo"></i> Z GPT</h3>
+                    <p class="text-gray-600 dark:text-gray-300">This is Chat GPT Alternative Version.</p>
+                    <a href="https://ridoandev.github.io/Z-GPT/" target="_blank" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold"><i class="fas fa-exchange-alt"></i> Uniconverter App</h3>
+                    <p class="text-gray-600 dark:text-gray-300">A unit conversion app with a user-friendly interface.</p>
+                    <a href="https://ridoandev.github.io/UniConverter/" target="_blank" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold"><i class="fas fa-edit"></i> Zpad</h3>
+                    <p class="text-gray-600 dark:text-gray-300">A note-taking app with user authentication and data management features.</p>
+                    <a href="https://ridoandev.github.io/zpad/" target="_blank" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+                          <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold"><i class="fas fa-keyboard"></i> Typing Test</h3>
+                    <p class="text-gray-600 dark:text-gray-300">A typing test app with a user-friendly interface.</p>
+                    <a href="https://ridoandev.github.io/T-Test/" target="_blank" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold"><i class="fas fa-th-large"></i> Tik Tak Toe</h3>
+                    <p class="text-gray-600 dark:text-gray-300">A challenging classic Tic-Tac-Toe game.</p>
+                    <a href="https://ridoandev.github.io/Tik-Tak-Toe/" target="_blank" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold"><i class="fas fa-gamepad"></i> Snake Game</h3>
+                    <p class="text-gray-600 dark:text-gray-300">A challenging classic Snake game.</p>
+                    <a href="https://ridoandev.github.io/snake-game/" target="_blank" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold"><i class="fas fa-brain"></i> Sound Memory Game</h3>
+                    <p class="text-gray-600 dark:text-gray-300">A challenging classic memory game.</p>
+                    <a href="https://ridoandev.github.io/Sound-Memory/" target="_blank" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    
+    <!-- Achievements Section -->
+    <section id="achievements" class="section py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="certificate bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold">Web Development Certificate</h3>
+                    <p class="text-gray-600 dark:text-gray-300">As a certified Web Developer</p>
+                    <a href="https://drive.google.com/file/d/159YDeXfY7TSjxJlNyw-piESNPZXutiqR/view?usp=" target="_blank" class="text-blue-500 hover:text-blue-700">View Certificate</a>
+                </div>
+                <div class="certificate bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold">United Nations Certificates</h3>
+                    <p class="text-gray-600 dark:text-gray-300">5 UN Certificates on SDG</p>
+                    <a href="https://drive.google.com/drive/folders/14CmnXmAOTXvDSdxFfIUUcHqdU-p7ETeH" target="_blank" class="text-blue-500 hover:text-blue-700">View Certificate</a>
+                </div>
+                <div class="certificate bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold">Other Certificates</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Certificates earned in my other skills</p>
+                    <a href="https://drive.google.com/drive/folders/18XgWheMc8PvrxyGEQYbGUsbp9ga7ul4F" target="_blank" class="text-blue-500 hover:text-blue-700">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="section py-20">
+        <div class="container mx-auto px-6">
+            <div class="iframe-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSd2mTY3mfh8-C2BBtcXAVbcu7DkUstyVoH1SeeVxsPZjHiI0Q/viewform?embedded=true"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    class="w-full h-96">Loading…</iframe>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-      <div class="social-links">
-          <a href="https://www.linkedin.com/in/ridoan2007" target="_blank"><i class="fab fa-linkedin icon"></i></a>
-          <a href="https://wa.me/8801712525910" target="_blank"><i class="fab fa-whatsapp icon"></i></a>
-          <a href="https://github.com/RidoanDev" target="_blank"><i class="fab fa-github icon"></i></a>
-          <a href="https://www.facebook.com/ridoan2007" target="_blank"><i class="fab fa-facebook icon"></i></a>
-          <a href="https://www.instagram.com/ridoan2007" target="_blank"><i class="fab fa-instagram icon"></i></a>
-          <a href="https://x.com/ridoan2007" target="_blank"><i class="fab fa-twitter icon"></i></a>
-      </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <div class="social-links space-x-4">
+                <a href="https://www.linkedin.com/in/ridoan2007" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-blue-500"><i class="fab fa-linkedin icon"></i></a>
+                <a href="https://wa.me/8801712525910" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-green-500"><i class="fab fa-whatsapp icon"></i></a>
+                <a href="https://github.com/RidoanDev" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"><i class="fab fa-github icon"></i></a>
+                <a href="https://www.facebook.com/ridoan2007" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-blue-600"><i class="fab fa-facebook icon"></i></a>
+                <a href="https://www.instagram.com/ridoan2007" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-pink-500"><i class="fab fa-instagram icon"></i></a>
+                <a href="https://x.com/ridoan2007" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-blue-400"><i class="fab fa-twitter icon"></i></a>
+            </div>
+        </div>
+    </footer>
 
-<script>
-// Get the hamburger icon and the navigation menu
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
 
-// Toggle the navigation menu on click
-hamburger.addEventListener('click', (event) => {
-    event.stopPropagation(); // Prevent click from bubbling up
-    navLinks.classList.toggle('active');
-});
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-// Close the navigation menu if a menu link is clicked (for mobile view)
-const navItems = document.querySelectorAll('#nav-links a');
-navItems.forEach(item => {
-    item.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-        }
-    });
-});
+        // Close the menu when clicking outside of it
+        document.addEventListener('click', (event) => {
+            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
 
-// Close the navigation menu if anywhere else on the screen is clicked
-document.addEventListener('click', (event) => {
-    // Close the menu if clicked outside the hamburger and nav menu
-    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-        }
-    }
-});
+        // Close the menu when scrolling
+        window.addEventListener('scroll', () => {
+            if (navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
 
-// Close the navigation menu when the user scrolls down
-window.addEventListener('scroll', () => {
-    if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-    }
-});
-
-</script>
+        // Close the menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+    </script>
 
 </body>
-</html>
+        </html>
