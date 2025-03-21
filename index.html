@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Md Ridoan Mahmud Zisan</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     .star-filled {
       color: #006A4E; /* Dark Green */
@@ -275,7 +276,6 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-green-700 text-white py-8">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-8">
@@ -287,7 +287,8 @@
             <li><button onclick="scrollToSection('experience')" class="hover:text-green-200">Experience</button></li>
             <li><button onclick="scrollToSection('skills')" class="hover:text-green-200">Skills</button></li>
             <li><button onclick="scrollToSection('contact')" class="hover:text-green-200">Contact</button></li>
-            <li><button onclick="scrollToSection('Personal_information')" class="hover:text-green-200">Personal Info</button></li>          </ul>
+            <li><button onclick="scrollToSection('Personal_information')" class="hover:text-green-200">Personal Info</button></li>
+          </ul>
         </div>
         <div>
           <h3 class="font-bold text-lg mb-4">Important Documents</h3>
@@ -316,12 +317,37 @@
           </address>
         </div>
       </div>
+  
+      <!-- Social Media Icons -->
+      <div class="mt-8 pt-8 border-t border-green-600 text-center">
+        <div class="flex justify-center gap-4">
+          <a href="https://www.linkedin.com/in/ridoan2007" target="_blank" class="text-gray-300 hover:text-blue-500">
+            <i class="fab fa-linkedin icon"></i>
+          </a>
+          <a href="https://wa.me/8801712525910" target="_blank" class="text-gray-300 hover:text-green-500">
+            <i class="fab fa-whatsapp icon"></i>
+          </a>
+          <a href="https://github.com/RidoanDev" target="_blank" class="text-gray-300 hover:text-gray-900 dark:hover:text-white">
+            <i class="fab fa-github icon"></i>
+          </a>
+          <a href="https://www.facebook.com/ridoan2007" target="_blank" class="text-gray-300 hover:text-blue-600">
+            <i class="fab fa-facebook icon"></i>
+          </a>
+          <a href="https://www.instagram.com/ridoan2007" target="_blank" class="text-gray-300 hover:text-pink-500">
+            <i class="fab fa-instagram icon"></i>
+          </a>
+          <a href="https://x.com/ridoan2007" target="_blank" class="text-gray-300 hover:text-blue-400">
+            <i class="fab fa-twitter icon"></i>
+          </a>
+        </div>
+      </div>
+  
+      <!-- Copyright Notice -->
       <div class="mt-8 pt-8 border-t border-green-600 text-center">
         <p>&copy; 2025 Md Ridoan Mahmud Zisan. All rights reserved.</p>
       </div>
     </div>
   </footer>
-
   <script>
     // Function to scroll to a specific section
     function scrollToSection(sectionId) {
@@ -329,11 +355,6 @@
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       }
-    }
-
-    // Function to toggle language (placeholder)
-    function toggleLanguage() {
-      alert("Language toggle functionality will be implemented here.");
     }
   </script>
 </body>
